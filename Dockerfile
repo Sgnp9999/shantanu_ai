@@ -2,7 +2,7 @@ FROM python:3.8
 
 RUN apt-get update
 
-RUN pip3 install sentence_transformers langchain tabulate langchain_experimental langchain_community faiss-cpu pandas PyPDF2
+RUN pip3 install streamlit sentence_transformers langchain tabulate langchain_experimental langchain_community faiss-cpu pandas PyPDF2
 
 WORKDIR /app
 
