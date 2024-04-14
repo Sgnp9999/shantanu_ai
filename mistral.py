@@ -22,7 +22,8 @@ def ask_mistral(question):
     return llm(question)
 
 def personal_mistral(question, db):
-    context=db.similarity_search(query=question ,fetch_k=2)
+    context=db.similarity_search(query=question ,fetch_k=4)
+    print(len(context))
     return llm_chain.run(question=question, context=context)
 
 def mistral_csv(df, question):
