@@ -1,0 +1,8 @@
+sentence_transformers
+langchain
+tabulate
+langchain_experimental
+langchain_community
+faiss-cpu
+pandas
+PyPDF2
