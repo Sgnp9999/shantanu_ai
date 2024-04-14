@@ -2,13 +2,14 @@ import streamlit as st
 import pandas as pd
 import streamlit_pdf_reader
 import mistral
+import os
 st.title("AI ChatBot")
 data_type = st.radio("Select Input Type:", ("Chat", "CSV", "Personal"))
 
 from langchain.embeddings.sentence_transformer import SentenceTransformerEmbeddings
 from langchain_community.vectorstores import faiss
 from langchain.text_splitter import CharacterTextSplitter
-embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2", cache_folder="/emb")
+embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2", cache_folder="emb")
 
 if data_type == "Chat":
   user_input = st.text_input("Ask question:", placeholder="What is the currency of India?")
