@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo Installing dependencies...
+
+  pre_build:
+    commands:
+      - echo Pre-build phase...
+      - docker --version
+      - ls
+      - docker build -t public.ecr.aws/m3z6i0d0/shantanu_ai:latest .
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Streamlit app...
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/m3z6i0d0
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - docker push public.ecr.aws/m3z6i0d0/shantanu_ai:latest
+
