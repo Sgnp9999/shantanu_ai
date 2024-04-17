@@ -18,7 +18,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Streamlit app...
-      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/m3z6i0d0
+      - aws ecr-public get-login-password --region ap-south-1 | docker login --username AWS --password-stdin public.ecr.aws/m3z6i0d0
 
   post_build:
     commands:
